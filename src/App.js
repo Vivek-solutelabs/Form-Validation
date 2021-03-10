@@ -1,23 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import Form from "./Form";
+import Display from "./Display";
 
 function App() {
+  const [userdetails, setUserdetails] = useState([]);
+  const [id, setId] = useState("");
+  const [edit, setEdit] = useState(false);
+
+  console.log("inside App" + edit);
+  //debugger;
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="heading">
+        <h1 align="center">Hello Solute Lab</h1>
+      </div>
+
+      <div className="container">
+        <Form
+          userdetails={userdetails}
+          setUserdetails={setUserdetails}
+          id={id}
+          key={"vivek"}
+          edit={edit}
+          setEdit={setEdit}
+          setId={setId}
+        />
+
+        <Display
+          userdetails={userdetails}
+          setUserdetails={setUserdetails}
+          setId={setId}
+          key={"bhai"}
+          setEdit={setEdit}
+          edit={edit}
+        />
+      </div>
     </div>
   );
 }
